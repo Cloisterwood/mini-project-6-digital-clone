@@ -1,11 +1,11 @@
 # Handoff — current state
 
 **Planning date:** October 6, 2026 (plan created by ZCode from the user's pasted assignment).
-**Status:** Plan complete, no code written. Next action: **Stage 0** in VS Code.
+**Status:** **Stage 0 complete** (2026-10-07, ZCode, model GLM-5.3-Flash). Next action: **Stage 1**.
 
 ## Next action
 
-Open this folder in VS Code (Codex) **or** in ZCode, paste the kickoff prompt from START_HERE.md, and run Stage 0 (access, destinations, decisions). Both runners follow the same plan; see "Running a stage in ZCode instead" in 03-OPERATING-RULES.md.
+Run Stage 1 (environment, package skeleton, and data models) — kickoff prompt from START_HERE.md, either runner. The user's outstanding Stage 0 follow-through: create the ten Linear issues from the paste list given at the S0 stop, then paste the IDs/URLs into RESOURCES.md (or hand them to the next session to record) and mark MP6-S0 Done with the repo URL + commit SHA as evidence.
 
 ## Decisions already made (do not re-litigate)
 
@@ -17,8 +17,8 @@ Open this folder in VS Code (Codex) **or** in ZCode, paste the kickoff prompt fr
 
 ## Unresolved setup details (Stage 0's job)
 
-- [ ] GitHub repo created (private, under `Cloisterwood`) and plan pushed; URL + SHA recorded in RESOURCES.md.
-- [ ] Linear project + issues MP6-S0…S9 created; real IDs/URLs recorded. In VS Code this is MCP + browser OAuth; in ZCode either the user creates the ten issues manually in the Linear UI from 01-STAGES.md, or updates queue in `docs/LINEAR_SYNC.md` until a connected session syncs them.
+- [x] GitHub repo created (private): https://github.com/Cloisterwood/mini-project-6-digital-clone — plan pushed, commit `a3676833`, remote SHA verified (2026-10-07).
+- [ ] Linear project + issues MP6-S0…S9 created; real IDs/URLs recorded. User chose manual creation (2026-10-07); pending their paste-back.
 - [ ] Actual VS Code Codex model labels recorded (user said "Codex Sol 5.1"; MP5 notes said "Sol 6.1" — confirm what the picker shows for Sol/Terra/Luna).
 - [ ] Python interpreter for `.venv` chosen in S1 after dependency resolution (system has Homebrew 3.14 and 3.13.5).
 
@@ -31,6 +31,6 @@ Open this folder in VS Code (Codex) **or** in ZCode, paste the kickoff prompt fr
 
 ## Human-only tasks (blockers if not done)
 
-1. **Stage 0:** confirm repo name; complete Linear OAuth when prompted.
+1. **After S0 (now):** create the ten Linear issues from the paste list; mark MP6-S0 Done with repo URL + commit `a3676833` as evidence; paste IDs/URLs back.
 2. **Stage 2:** none expected — employee decision pre-made; only if `mann-k` yields <200 usable emails does the fallback switch need your awareness (it is logged, not blocked).
 3. **Stage 9:** run the interactive CLI yourself and accept delivery.

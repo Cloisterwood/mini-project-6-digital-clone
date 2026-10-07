@@ -9,12 +9,14 @@
 - **Hardware:** Apple M2, 24 GB — sufficient for the entire pipeline on CPU; no Colab/RunPod expected.
 - **Implementation reference:** `docs/superpowers/plans/2026-07-04-enron-digital-clone.md` (Tasks 1–16 with code and tests).
 
-## To confirm in Stage 0 (fill in below)
+## Stage 0 record (2026-10-07)
 
-- GitHub repo URL: ________  |  first pushed commit SHA: ________
-- Linear workspace/team: ________  |  project URL: ________  |  issue IDs MP6-S0…S9: ________
-- VS Code Codex model labels actually available (Sol / Terra / Luna variants): ________
-- Chosen Python version for `.venv` (S1): ________
+- **GitHub repo:** https://github.com/Cloisterwood/mini-project-6-digital-clone (private, under `Cloisterwood`). First pushed commit `a367683319b61962cc615f2692332fab1c866ff2`; remote SHA verified equal to local HEAD.
+- **Runner/model for S0:** ZCode session, model GLM-5.3-Flash. Sol/Terra/Luna tier table not applicable (VS Code-only, per 03-OPERATING-RULES).
+- **Linear (user decision 2026-10-07):** the user creates the ten stage issues manually in the Linear UI; record IDs/URLs here once created. Statuses until then live in this file and HANDOFF.md.
+  - Linear workspace/team: ________  |  project URL: ________  |  issue IDs MP6-S0…S9: ________
+- **VS Code Codex model labels:** not needed for a ZCode run; confirm when a stage runs in VS Code.
+- **Python version for `.venv`:** to be chosen in S1 after dependency resolution (system offers Homebrew 3.14 and 3.13.5).
 
 ## Notes
 
