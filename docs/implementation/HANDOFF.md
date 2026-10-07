@@ -23,7 +23,7 @@ Nothing left for an agent session. Two **human-only** items before submission:
   - CLI on the rebuilt artifacts: `"What is TCP/IP?"` → **DELIVER**, final 0.88, styled "Hi … Thanks, Kay" reply with 3 citations, 472 ms; `"Can we schedule a call?"` → **FALLBACK**, trigger `user_request` correctly takes priority over the passing 0.76 score, config-template link `https://calendly.com/kay_mann/30min`, 6 slots (Oct 8/9/12), 153 ms. Smoke clone (`/tmp/mp6-smoke`) deleted after the audit; the dev checkout was never touched by the smoke (its `git status` stayed clean except S9 doc files).
 - **Repo hygiene audit:** 77 tracked files; none >1 MB; no `.env`/secret/credential filenames; no datasets/caches/venv/joblib/FAISS artifacts tracked (`.gitignore` verified); content scan of all tracked files for key-shaped strings (`sk-…`, `AKIA…`, private-key blocks) → negative.
 - **README updated:** status line → delivered; DELIVERABLE_CHECKLIST added to submission artifacts. RESOURCES.md gained the Stage 9 record (with the hygiene + smoke evidence); LINEAR_SYNC.md gained the S9 entry (S0–S9 all queued).
-- **Delivery SHA:** recorded in RESOURCES.md and in the completion commit that closes this handoff (per the project's established feat-docs two-commit convention; both verified against the remote).
+- **Delivery SHA:** `9b8a1a47f74e5427b89a56f2de35fdddf4b206e9` — pushed to `origin/main`, remote SHA verified equal to local HEAD. This handoff-closing completion commit sits on top of it (also push-verified), per the project's established feat-docs two-commit convention.
 - **No tuning, no config changes, no code changes in S9** — docs and audit only; the 4-entry iteration log and kept `CloneConfig` defaults are untouched.
 
 ## Stage 8 record (2026-10-07)
