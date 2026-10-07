@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "digital-clone"
+version = "0.1.0"
+description = "Deterministic 5-agent digital clone of an Enron employee (mini-project 6)"
+requires-python = ">=3.10"
+# Dependencies live in requirements.txt (source of truth, per the July plan).
+# This file exists so `.venv/bin/pip install -e .` makes `python -m digital_clone`
+# runnable from the repo root (src layout).
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]

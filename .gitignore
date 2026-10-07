@@ -13,3 +13,6 @@ __pycache__/
 data/raw/
 data/emails/
 *.joblib
+
+# Editable-install build artifact
+*.egg-info/

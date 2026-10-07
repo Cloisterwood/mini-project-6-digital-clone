@@ -16,7 +16,15 @@
 - **Linear (user decision 2026-10-07):** the user creates the ten stage issues manually in the Linear UI; record IDs/URLs here once created. Statuses until then live in this file and HANDOFF.md.
   - Linear workspace/team: ________  |  project URL: ________  |  issue IDs MP6-S0…S9: ________
 - **VS Code Codex model labels:** not needed for a ZCode run; confirm when a stage runs in VS Code.
-- **Python version for `.venv`:** to be chosen in S1 after dependency resolution (system offers Homebrew 3.14 and 3.13.5).
+- **Python version for `.venv`:** **3.14.5** (Homebrew `python3.14`, chosen over 3.13.5 because the full required stack resolved on it — verified at install time per 01-STAGES: faiss-cpu 1.15.1, sentence-transformers 6.1.0, torch 2.14.1 cp314 wheel, scikit-learn 1.9.1, pydantic 2.13.5). VS Code interpreter pinned via `.vscode/settings.json`.
+
+## Stage 1 record (2026-10-07)
+
+- **Runner/model:** ZCode session, model GLM-5.3-Flash. Sol/Terra/Luna tier table not applicable (per 03-OPERATING-RULES ZCode clause).
+- **Environment:** `.venv` from `python3.14`; installed from `requirements.txt` (editable `pip install -e .` added via a minimal `pyproject.toml` so the acceptance command `.venv/bin/python -m digital_clone doctor` works with the src layout). Disk free at install: 151 GB.
+- **crewai (optional, S8):** does NOT resolve on Python 3.14 — every crewai release up to 1.15.23 requires `>=3.10,<3.14`. Left commented in `requirements.txt` per the stage's "note it and continue". S8 options: a temporary 3.13.5 side-venv for the crew test, or keep `describe_crew` import-stubbed offline (decide in S8).
+- **Tests:** `pytest` → 8 passed (2 config + 6 models), red-first verified (`ModuleNotFoundError` before implementation).
+- **Doctor:** `.venv/bin/python -m digital_clone doctor` → `doctor: OK` (exit 0): all 14 packages present, numpy/sklearn/faiss smoke passed.
 
 ## Notes
 
