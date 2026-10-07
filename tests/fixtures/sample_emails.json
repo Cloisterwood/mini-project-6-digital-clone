@@ -1,0 +1,98 @@
+[
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["ben@enron.com"],
+    "subject": "Turbine agreement",
+    "body": "Hi Ben,\n\nPlease take a look at the turbine agreement draft... I think we need the counterparty to confirm the delivery schedule. Can you check?\n\nThanks,\nKay",
+    "timestamp": "2001-03-05T09:15:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["suzanne@enron.com"],
+    "subject": "Re: guaranty language",
+    "body": "Hi Suzanne,\n\nThe guaranty language looks fine because the parent company signs directly. However, we should confirm the governing law section.\n\nThanks,\nKay",
+    "timestamp": "2001-03-06T14:02:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["mark.taylor@enron.com"],
+    "subject": "Nominations for the capacity sale",
+    "body": "Hi Mark,\n\nAttached is the draft nomination for the capacity sale. Please review the attached contract schedule and let me know if the process works for your team. Can you confirm by Thursday?\n\nThanks,\nKay",
+    "timestamp": "2001-03-06T16:40:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["chris.germany@enron.com"],
+    "subject": "Confidentiality agreement - Transwestern",
+    "body": "Hi Chris,\n\nThe confidentiality agreement from Transwestern is attached. The legal language is standard, however I would like our analysis of the risk section before we sign. Please advise.\n\nThanks,\nKay",
+    "timestamp": "2001-03-07T10:05:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["sara.shackleton@enron.com"],
+    "subject": "RE: ISDA master agreement",
+    "body": "Hi Sara,\n\nThanks for the ISDA master agreement redline. Because the counterparty is a foreign entity, we need the network of affiliates language tightened. I am attaching our process notes... let me know if you agree.\n\nThanks,\nKay",
+    "timestamp": "2001-03-08T11:22:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["kenneth.lay@enron.com"],
+    "subject": "Summary of open legal issues",
+    "body": "Hi Ken,\n\nA quick summary of the open legal issues: the agreement draft is with the counterparty, the guaranty is pending parent company approval, and the data room is nearly complete. I will send a full analysis on Friday.\n\nThanks,\nKay",
+    "timestamp": "2001-03-09T08:47:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["jeff.dasovich@enron.com"],
+    "subject": "Regulatory filing process",
+    "body": "Hi Jeff,\n\nPlease review the filing schedule for the regulatory process. The protocol requires the attached data before the hearing. Can your team confirm the server timeline? However, if the schedule slips we still have margin.\n\nThanks,\nKay",
+    "timestamp": "2001-03-12T13:31:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["tana.jones@enron.com"],
+    "subject": "Turbine contract - counterparty comments",
+    "body": "Hi Tana,\n\nThe counterparty sent comments on the turbine contract... Their proposed changes to the delivery process create legal risk because the schedule is tied to the financing. I am drafting a response now.\n\nThanks,\nKay",
+    "timestamp": "2001-03-13T09:58:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["richard.shapiro@enron.com"],
+    "subject": "Draft testimony - data request",
+    "body": "Hi Dick,\n\nThe draft testimony is attached. Please review the data appendix since the analysis changed after the last network model run. The legal review is complete.\n\nThanks,\nKay",
+    "timestamp": "2001-03-14T15:12:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["elizabeth.sager@enron.com"],
+    "subject": "Guaranty - final form",
+    "body": "Hi Liz,\n\nThe guaranty in final form is attached. The parent company signatory is confirmed and the governing law section now matches the master agreement. Can you route it for signature?\n\nThanks,\nKay",
+    "timestamp": "2001-03-15T10:26:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["steven.southwell@enron.com"],
+    "subject": "Re: contract database",
+    "body": "Hi Steven,\n\nThe contract database is up to date through March. Because the server migration starts Monday, please download the reports you need before then... The analysis templates are in the shared folder.\n\nThanks,\nKay",
+    "timestamp": "2001-03-16T14:44:00Z",
+    "folder": "mann-k/sent"
+  },
+  {
+    "sender": "kay.mann@enron.com",
+    "recipients": ["ben@enron.com", "suzanne@enron.com"],
+    "subject": "Meeting on the turbine schedule",
+    "body": "Hi Ben and Suzanne,\n\nCan we meet Thursday to close the turbine schedule? The agreement process is otherwise complete and the counterparty is waiting on our legal confirmation. I attached the latest draft data.\n\nThanks,\nKay",
+    "timestamp": "2001-03-19T09:03:00Z",
+    "folder": "mann-k/sent"
+  }
+]
