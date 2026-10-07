@@ -1,0 +1,54 @@
+{
+  "employee_name": "kay_mann",
+  "style_features": {
+    "message_length": 92.96870785001349,
+    "greeting_presence": 0.13555435662260587,
+    "signoff_presence": 0.2868896681953062,
+    "ellipsis_rate": 0.1850832375622648,
+    "exclamation_rate": 0.5039384358232897,
+    "dash_rate": 1.0715342244856367,
+    "capitalization_ratio": 0.09390116517553107,
+    "question_frequency": 0.8687618019962233,
+    "vocabulary_richness": 0.7976235758886808,
+    "reasoning_rate": 0.14692858779515544,
+    "sentiment_polarity": 0.011423229060407639,
+    "formality_score": 0.19839830645718562,
+    "technical_term_rate": 0.8118452465058131
+  },
+  "style_vector": [
+    0.11186646743501402,
+    0.49045901181457024,
+    0.4354699844409653,
+    -0.03043812197814563,
+    -0.06514935269917112,
+    0.6873007737276686
+  ],
+  "greeting_patterns": {
+    "hi": 0.12476396007553278,
+    "hey": 0.0037766387914755866,
+    "good morning": 0.003506878877798759,
+    "hello": 0.0018883193957377933,
+    "good afternoon": 0.0009441596978688966
+  },
+  "signoff_patterns": {
+    "thanks": 0.25303479902886433,
+    "thank you": 0.018478554086862692,
+    "regards": 0.01240895602913407,
+    "best": 0.002697599136768276,
+    "sincerely": 0.0002697599136768276
+  },
+  "common_phrases": [
+    "corp enron enron",
+    "hou ect ect",
+    "to kay mann",
+    "kay mann corp",
+    "mann corp enron",
+    "enron enron cc",
+    "kay mann enron",
+    "cc subject re",
+    "enron cc subject",
+    "mann enron com"
+  ],
+  "n_emails": 7414,
+  "last_updated": "2026-10-07T17:18:22.835548Z"
+}

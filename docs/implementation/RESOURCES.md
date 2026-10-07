@@ -27,6 +27,14 @@
 - **Tests:** `pytest` → 8 passed (2 config + 6 models), red-first verified (`ModuleNotFoundError` before implementation).
 - **Doctor:** `.venv/bin/python -m digital_clone doctor` → `doctor: OK` (exit 0): all 14 packages present, numpy/sklearn/faiss smoke passed.
 
+## Stage 2 record (2026-10-07)
+
+- **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
+- **Tests:** 30/30 passed (22 new: features 7, email loader 5, incremental 5, style agent 5; each module red-first verified).
+- **Dataset cached:** Kaggle `wcukierski/enron-email-dataset` version 2 via kagglehub at `~/.cache/kagglehub/datasets/wcukierski/enron-email-dataset/versions/2/emails.csv` (358 MB download took ~13 s; subsequent runs are cached).
+- **Style profile artifact:** `data/models/style_profile_kay_mann.json` (committed) + `.joblib` (gitignored per `*.joblib` rule). Learned from 7,414 usable sent emails of `mann-k` (8,926 raw sent-folder messages; 1,512 dropped by cleaning/sender match — noted in `docs/iteration_log.md`). Top-20 sent-volume report printed pre-learning; `mann-k` confirmed as the highest-volume mailbox.
+- **Visualization:** `docs/visualizations/style_feature_radar.png` (150 dpi; passed visual acceptance after removing a colliding radial-axis label).
+
 ## Notes
 
 - The user's pasted assignment lost its HuggingFace/Kaggle hyperlink URLs in copy-paste; the dataset identities above come from the July plan's locked decisions and the assignment's own descriptions (mailbox-style Enron corpus; `open-phi/textbooks`). If Stage 2 or 3 finds a mismatch with the actual data, stop and re-confirm with the user before substituting a different source.

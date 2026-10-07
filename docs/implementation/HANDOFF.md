@@ -1,11 +1,21 @@
 # Handoff — current state
 
 **Planning date:** October 6, 2026 (plan created by ZCode from the user's pasted assignment).
-**Status:** **Stage 1 complete** (2026-10-07, ZCode, model GLM-5.3-Flash; Stage 0 completed 2026-10-07 same runner). Next action: **Stage 2**.
+**Status:** **Stage 2 complete** (2026-10-07, ZCode, model GLM-5.3-Flash; Stage 0–1 completed 2026-10-07 same runner). Next action: **Stage 3**.
 
 ## Next action
 
-Run Stage 2 (Enron data and ChatStyleAgent — July Tasks 3–6 + style half of Task 12) from `01-STAGES.md`. It downloads the ~358 MB Kaggle corpus via `kagglehub` (cached; long step — checkpoint before it) and runs tests-first with fixtures. The user's outstanding Stage 0 follow-through (still open): create the ten Linear issues from the paste list given at the S0 stop, paste the IDs/URLs into RESOURCES.md, and mark MP6-S0/S1 Done using the evidence in `docs/implementation/LINEAR_SYNC.md`.
+Run Stage 3 (knowledge base and RAGAgent — July Tasks 7–9 + RAG half of Task 12) from `01-STAGES.md`. It streams `open-phi/textbooks`, indexes >900 chunks into FAISS (<5 min target), and needs the `sample_corpus.json` fixture from Task 7. No corpus download needed (textbooks stream; style corpus already cached by kagglehub). The user's outstanding Stage 0 follow-through (still open): create the ten Linear issues from the paste list given at the S0 stop, paste the IDs/URLs into RESOURCES.md, and mark MP6-S0/S1/S2 Done using the evidence in `docs/implementation/LINEAR_SYNC.md`.
+
+## Stage 2 record (2026-10-07)
+
+- **Runner/model:** ZCode session, model GLM-5.3-Flash (Sol/Terra/Luna table not applicable).
+- **Milestone commit:** see git log `feat(S2)`/docs commits after `037abec`; remote SHA verified equal to local HEAD (verify command output preserved in the session transcript and RESOURCES.md Stage 2 record).
+- **Code (tests first, red verified via `ModuleNotFoundError` before each implementation):** `style/features.py` (7 tests), `style/email_loader.py` + 12-email fixture + `conftest.py` (5 tests), `style/incremental.py` (5 tests), `agents/style_agent.py` (5 tests). Full suite: **30/30 passed** (8 prior + 22 new).
+- **Scripts:** `scripts/build_style_profile.py` (July Task 12 Step 1 + Stage 2 additions: top-20 sent-volume report before learning, documented dasovich-j fallback if <200, per-batch delta report) and `scripts/plot_style_radar.py` (spec chart 1).
+- **Real build evidence:** Kaggle corpus downloaded via kagglehub (358 MB, cached at `~/.cache/kagglehub/.../versions/2/emails.csv`). Top-20 report printed; `mann-k` is #1 with 8,926 raw sent-folder messages. **7,414 usable sent emails** loaded for `kay.mann@enron.com` (≥200 required — no fallback switch). **149 batches** processed (history length >1 ✓); learned greeting "hi" (12.5%) and sign-off "thanks" (25.3%). Profile saved to `data/models/style_profile_kay_mann.json` (+ joblib, gitignored).
+- **Radar PNG:** `docs/visualizations/style_feature_radar.png` regenerated after a visual-judge repair (removed a radial-axis label that collided with two feature labels); final render **passed** visual acceptance (title, 13 legible labels, grid, colorblind-safe color, 150 dpi).
+- **Deviations:** recorded in `docs/iteration_log.md` (dropped-emails note; batches 71–80 EMA delta spike kept as a real corpus property). No employee switch; no config changes.
 
 ## Stage 1 record (2026-10-07)
 
