@@ -1,0 +1,15 @@
+# Environments and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Secrets
+.env*
+!.env.example
+
+# Data that must never be committed (rebuilt by scripts; see docs/REPRODUCIBILITY.md)
+data/raw/
+data/emails/
+*.joblib
