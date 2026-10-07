@@ -1,11 +1,30 @@
 # Handoff — current state
 
 **Planning date:** October 6, 2026 (plan created by ZCode from the user's pasted assignment).
-**Status:** **Stage 8 complete** (2026-10-07, ZCode, model GLM-5.3-Flash; Stages 0–7 completed 2026-10-07 same runner). Next action: **Stage 9** (final audit, GitHub delivery, closeout — the last stage).
+**Status:** **Stage 9 complete — project delivered with explicitly listed unmet criteria** (2026-10-07, ZCode, model GLM-5.3-Flash; Stages 0–8 completed 2026-10-07 same runner). Delivery SHA: see the Stage 9 record below and RESOURCES.md.
 
 ## Next action
 
-Run Stage 9 (final audit + delivery — July Task 16 Steps 3–4) from `01-STAGES.md`. Dependency S8 complete. Scope: build `docs/DELIVERABLE_CHECKLIST.md` (every spec Final Success Criteria checkbox audited against a real artifact path; unmet performance targets listed as unmet with measured values — known ones: confidence 0.728 < 0.80, indexing 528.6 s, whole-package coverage 82%, delivered-OOD 3/4); clean-environment smoke (fresh venv from `requirements.txt`, follow README: style profile → knowledge base → tests → one CLI query per branch); final review/stage of named files, commit, push, verify remote SHA = local HEAD, record URL + SHA in RESOURCES.md; confirm no credentials/datasets/caches/oversized binaries in the repo; update Linear (close only completed issues, leave unmet criteria explicit); final handoff update ending `STOP S9 — project delivered` or `— delivered with explicitly listed unmet criteria`. **Human-only blocker:** the user must run the interactive CLI themselves (`python -m digital_clone.cli`) at least once for delivery acceptance. Outstanding since S0: the user's manual Linear issue creation (evidence queued in `docs/implementation/LINEAR_SYNC.md`, now S0–S8).
+Nothing left for an agent session. Two **human-only** items before submission:
+
+1. **Run the interactive CLI yourself and accept delivery:** `.venv/bin/python -m digital_clone.cli` (REPL; try an in-domain question like "What is TCP/IP?" and a booking request like "Can we schedule a call?"). This is the stage plan's required human acceptance — S9's clean-env smoke verified both branches one-shot on a fresh clone, but the stage requires *your* run.
+2. **Create the ten Linear issues** from `docs/implementation/LINEAR_SYNC.md` (entries S0–S9, evidence ready) and close only completed ones — leave the four unmet criteria explicit (confidence 0.728 < 0.80; indexing 528.6 s; trigger accuracy 72.7%; whole-package coverage 82%).
+
+## Stage 9 record (2026-10-07)
+
+- **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
+- **`docs/DELIVERABLE_CHECKLIST.md` (new):** every assignment Final Success Criteria item audited against a real artifact path — **34 met / 4 unmet / 1 human acceptance pending**. Unmet, with measured values (also README tensions 1, 3, 4, 5): confidence 0.728 < 0.80; indexing 528.6 s vs <5 min; fallback trigger accuracy 72.7% (8/11 should-fallback queries; OOD 1/4) vs >90%; whole-package coverage 82% vs 90% (deterministic core 99.3% met). No unmet target is marked complete anywhere.
+- **Clean-environment smoke (the stage's acceptance core):** fresh `git clone` of `origin/main` (`af82b0b`) into an empty directory + fresh `python3 -m venv` (Python 3.14.5), then exactly the README sequence, no undocumented steps:
+  - `pip install -r requirements.txt` + `pip install -e .` — clean resolve on 3.14 (crewai stays optional/commented, as documented).
+  - `python -m digital_clone doctor` → **OK**.
+  - `pytest` → **81/81 passed (1.18 s)**.
+  - `scripts/build_style_profile.py` → profile **byte-identical to the committed artifact except `last_updated`** (7,414 emails; greeting "hi" 12.5%, sign-off "thanks" 25.3% — same as S2).
+  - `scripts/build_knowledge_base.py` → **210,225 chunks (identical count), 5/5 spot checks PASS at identical topics/similarities**; indexing 822.8 s vs the recorded 528.6 s — pure wall-clock variance, exactly what `docs/REPRODUCIBILITY.md` says varies. Verified by diffing the rebuilt `build_report.json`/profile JSON against the committed ones (only timing fields and the timestamp differ).
+  - CLI on the rebuilt artifacts: `"What is TCP/IP?"` → **DELIVER**, final 0.88, styled "Hi … Thanks, Kay" reply with 3 citations, 472 ms; `"Can we schedule a call?"` → **FALLBACK**, trigger `user_request` correctly takes priority over the passing 0.76 score, config-template link `https://calendly.com/kay_mann/30min`, 6 slots (Oct 8/9/12), 153 ms. Smoke clone (`/tmp/mp6-smoke`) deleted after the audit; the dev checkout was never touched by the smoke (its `git status` stayed clean except S9 doc files).
+- **Repo hygiene audit:** 77 tracked files; none >1 MB; no `.env`/secret/credential filenames; no datasets/caches/venv/joblib/FAISS artifacts tracked (`.gitignore` verified); content scan of all tracked files for key-shaped strings (`sk-…`, `AKIA…`, private-key blocks) → negative.
+- **README updated:** status line → delivered; DELIVERABLE_CHECKLIST added to submission artifacts. RESOURCES.md gained the Stage 9 record (with the hygiene + smoke evidence); LINEAR_SYNC.md gained the S9 entry (S0–S9 all queued).
+- **Delivery SHA:** recorded in RESOURCES.md and in the completion commit that closes this handoff (per the project's established feat-docs two-commit convention; both verified against the remote).
+- **No tuning, no config changes, no code changes in S9** — docs and audit only; the 4-entry iteration log and kept `CloneConfig` defaults are untouched.
 
 ## Stage 8 record (2026-10-07)
 
@@ -116,4 +135,6 @@ Run Stage 9 (final audit + delivery — July Task 16 Steps 3–4) from `01-STAGE
 
 1. **After S0 (now):** create the ten Linear issues from the paste list; mark MP6-S0 Done with repo URL + commit `a3676833` as evidence; paste IDs/URLs back.
 2. **Stage 2:** none expected — employee decision pre-made; only if `mann-k` yields <200 usable emails does the fallback switch need your awareness (it is logged, not blocked).
-3. **Stage 9:** run the interactive CLI yourself and accept delivery.
+3. **Stage 9 (only remaining):** run the interactive CLI yourself and accept delivery.
+
+**STOP S9 — delivered with explicitly listed unmet criteria** (confidence 0.728 < 0.80; indexing 528.6 s vs <5 min; fallback trigger accuracy 72.7% vs >90%; whole-package coverage 82% vs 90%). Repo: https://github.com/Cloisterwood/mini-project-6-digital-clone — delivery commit SHA in RESOURCES.md.
