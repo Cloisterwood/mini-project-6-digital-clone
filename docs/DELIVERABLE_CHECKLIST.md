@@ -2,7 +2,7 @@
 
 Audited 2026-10-07 against the assignment's **Final Success Criteria** section. Every item is checked against a real, committed artifact path with its measured value. **Unmet performance targets are listed as unmet with measured values** — not marked complete. Raw numbers come from `data/evaluations/eval_results.json` (`summary`), `data/evaluations/decision_log.jsonl` (20 lines, one per query), `data/rag/build_report.json`, and `data/models/style_profile_kay_mann.json`.
 
-Summary: **met 34 / unmet 4 / human acceptance pending 1** (interactive CLI run by the user). The four unmet items are also recorded as known tensions in the README.
+Summary: **met 35 / unmet 4** — all agent-verifiable items plus the human CLI acceptance (received 2026-10-07) are closed; only the user's manual Linear sync remains outstanding. The four unmet items are also recorded as known tensions in the README.
 
 ## Phase 1: Style Learning (ChatStyleAgent)
 
@@ -50,7 +50,7 @@ Summary: **met 34 / unmet 4 / human acceptance pending 1** (interactive CLI run 
 | [x] | All 5 agents coordinating through the planner | `src/digital_clone/agents/planner_agent.py`; `tests/test_planner.py`; 20-query real run | retrieve → generate → style → evaluate → deliver/fallback on all 20 queries ✓ |
 | [x] | End-to-end query processing completes in < 1 s | `data/evaluations/eval_results.json` (`summary.latency_mean`, `latency_p95`) | **52 ms mean / 68 ms p95** (model + index load excluded per contract) ✓ |
 | [x] | Error handling provides graceful fallback on component failures | `tests/test_planner.py` (simulated component failure → `system_error` fallback, never a crash) | 100% reliability on 20 real queries (0 crashes); simulated-failure test ✓ |
-| [ ] | Interactive CLI demo works for 5+ query types | `src/digital_clone/cli.py`; S5/S6 one-shot CLI smokes (both branches) recorded in `docs/implementation/HANDOFF.md`; **S9 clean-env smoke re-verified one-shot deliver + fallback queries on a fresh clone** (see below) | CLI verified working on both branches across 5 query types (the 20-query evaluation covers all five types end-to-end). **Human acceptance pending:** the user must run the interactive REPL (`python -m digital_clone.cli`) themselves at least once — the one human-only item left before submission. |
+| [x] | Interactive CLI demo works for 5+ query types | `src/digital_clone/cli.py`; S5/S6 one-shot CLI smokes (both branches) recorded in `docs/implementation/HANDOFF.md`; S9 clean-env smoke re-verified one-shot deliver + fallback queries on a fresh clone | CLI verified on both branches across 5 query types (the 20-query evaluation covers all five types end-to-end). **Human acceptance received 2026-10-07:** the user ran the interactive REPL themselves and confirmed the fallback branch triggers correctly ✓ |
 
 ## Visualizations
 
@@ -104,7 +104,7 @@ Conclusion: another person can clone the repo and follow the README to a working
 3. **Trigger accuracy 72.7% < 90%** (Phase 4) — OOD wrong-delivery 3/4; Entry 3 evidence.
 4. **Whole-package unit-test coverage 82% < 90%** (System-Wide Integration) — deterministic pipeline core at **99.3%** (met on the core reading); residual is entry points and real-data I/O exercised by the real builds instead. README tension 5.
 
-## Human-only acceptance (outstanding)
+## Human-only acceptance
 
-- [ ] **The user runs the interactive CLI themselves** (`python -m digital_clone.cli`) and accepts delivery — required by the stage plan before submission.
+- [x] **The user runs the interactive CLI themselves** (`python -m digital_clone.cli`) and accepts delivery — **done 2026-10-07**: the user ran the interactive CLI, it worked, and the fallback branch triggered correctly.
 - [ ] The user creates the Linear issues from `docs/implementation/LINEAR_SYNC.md` (queued S0–S9) and closes only completed ones, leaving the unmet criteria above explicit.

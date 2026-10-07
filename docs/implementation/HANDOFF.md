@@ -5,15 +5,14 @@
 
 ## Next action
 
-Nothing left for an agent session. Two **human-only** items before submission:
+One **human-only** item remains: **create the ten Linear issues** from `docs/implementation/LINEAR_SYNC.md` (entries S0–S9, evidence ready) and close only completed ones — leave the four unmet criteria explicit (confidence 0.728 < 0.80; indexing 528.6 s; trigger accuracy 72.7%; whole-package coverage 82%).
 
-1. **Run the interactive CLI yourself and accept delivery:** `.venv/bin/python -m digital_clone.cli` (REPL; try an in-domain question like "What is TCP/IP?" and a booking request like "Can we schedule a call?"). This is the stage plan's required human acceptance — S9's clean-env smoke verified both branches one-shot on a fresh clone, but the stage requires *your* run.
-2. **Create the ten Linear issues** from `docs/implementation/LINEAR_SYNC.md` (entries S0–S9, evidence ready) and close only completed ones — leave the four unmet criteria explicit (confidence 0.728 < 0.80; indexing 528.6 s; trigger accuracy 72.7%; whole-package coverage 82%).
+Human CLI acceptance is **received** (2026-10-07): the user ran the interactive CLI themselves, it worked, and the fallback branch triggered correctly — the last Stage 9 acceptance item is closed; `DELIVERABLE_CHECKLIST.md` now reads **35 met / 4 unmet**.
 
 ## Stage 9 record (2026-10-07)
 
 - **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
-- **`docs/DELIVERABLE_CHECKLIST.md` (new):** every assignment Final Success Criteria item audited against a real artifact path — **34 met / 4 unmet / 1 human acceptance pending**. Unmet, with measured values (also README tensions 1, 3, 4, 5): confidence 0.728 < 0.80; indexing 528.6 s vs <5 min; fallback trigger accuracy 72.7% (8/11 should-fallback queries; OOD 1/4) vs >90%; whole-package coverage 82% vs 90% (deterministic core 99.3% met). No unmet target is marked complete anywhere.
+- **`docs/DELIVERABLE_CHECKLIST.md` (new):** every assignment Final Success Criteria item audited against a real artifact path — **34 met / 4 unmet / 1 human-pending at audit time — human CLI acceptance received 2026-10-07, final tally 35 met / 4 unmet**. Unmet, with measured values (also README tensions 1, 3, 4, 5): confidence 0.728 < 0.80; indexing 528.6 s vs <5 min; fallback trigger accuracy 72.7% (8/11 should-fallback queries; OOD 1/4) vs >90%; whole-package coverage 82% vs 90% (deterministic core 99.3% met). No unmet target is marked complete anywhere.
 - **Clean-environment smoke (the stage's acceptance core):** fresh `git clone` of `origin/main` (`af82b0b`) into an empty directory + fresh `python3 -m venv` (Python 3.14.5), then exactly the README sequence, no undocumented steps:
   - `pip install -r requirements.txt` + `pip install -e .` — clean resolve on 3.14 (crewai stays optional/commented, as documented).
   - `python -m digital_clone doctor` → **OK**.
@@ -24,6 +23,7 @@ Nothing left for an agent session. Two **human-only** items before submission:
 - **Repo hygiene audit:** 77 tracked files; none >1 MB; no `.env`/secret/credential filenames; no datasets/caches/venv/joblib/FAISS artifacts tracked (`.gitignore` verified); content scan of all tracked files for key-shaped strings (`sk-…`, `AKIA…`, private-key blocks) → negative.
 - **README updated:** status line → delivered; DELIVERABLE_CHECKLIST added to submission artifacts. RESOURCES.md gained the Stage 9 record (with the hygiene + smoke evidence); LINEAR_SYNC.md gained the S9 entry (S0–S9 all queued).
 - **Delivery SHA:** `9b8a1a47f74e5427b89a56f2de35fdddf4b206e9` — pushed to `origin/main`, remote SHA verified equal to local HEAD. This handoff-closing completion commit sits on top of it (also push-verified), per the project's established feat-docs two-commit convention.
+- **Human CLI acceptance received (2026-10-07):** the user ran the interactive CLI themselves, confirmed it worked, and the fallback branch triggered correctly. Checklist Phase-5 CLI item and the human-acceptance section are checked; final audit tally **35 met / 4 unmet**. Only the manual Linear issue creation remains outstanding.
 - **No tuning, no config changes, no code changes in S9** — docs and audit only; the 4-entry iteration log and kept `CloneConfig` defaults are untouched.
 
 ## Stage 8 record (2026-10-07)
@@ -135,6 +135,6 @@ Nothing left for an agent session. Two **human-only** items before submission:
 
 1. **After S0 (now):** create the ten Linear issues from the paste list; mark MP6-S0 Done with repo URL + commit `a3676833` as evidence; paste IDs/URLs back.
 2. **Stage 2:** none expected — employee decision pre-made; only if `mann-k` yields <200 usable emails does the fallback switch need your awareness (it is logged, not blocked).
-3. **Stage 9 (only remaining):** run the interactive CLI yourself and accept delivery.
+3. **Stage 9 — DONE 2026-10-07:** the user ran the interactive CLI themselves and accepted delivery (fallback branch confirmed correct).
 
-**STOP S9 — delivered with explicitly listed unmet criteria** (confidence 0.728 < 0.80; indexing 528.6 s vs <5 min; fallback trigger accuracy 72.7% vs >90%; whole-package coverage 82% vs 90%). Repo: https://github.com/Cloisterwood/mini-project-6-digital-clone — delivery commit SHA in RESOURCES.md.
+**STOP S9 — delivered with explicitly listed unmet criteria** (confidence 0.728 < 0.80; indexing 528.6 s vs <5 min; fallback trigger accuracy 72.7% vs >90%; whole-package coverage 82% vs 90%). Repo: https://github.com/Cloisterwood/mini-project-6-digital-clone — delivery commit SHA in RESOURCES.md. Human CLI acceptance received 2026-10-07; only the user's manual Linear sync remains.

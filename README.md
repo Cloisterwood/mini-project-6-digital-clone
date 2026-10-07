@@ -2,7 +2,7 @@
 
 A deterministic five-agent "digital clone" of an Enron employee (default: Kay Mann) that answers questions in their email style, grounded in a computer-science textbook knowledge base, with weighted quality evaluation and calendar-booking fallback. **No runtime LLM** — the graded pipeline is fully deterministic and offline; query latency is milliseconds, not API round-trips.
 
-**Status:** **Delivered 2026-10-07** — all nine stages complete. Final Success Criteria audit: [docs/DELIVERABLE_CHECKLIST.md](docs/DELIVERABLE_CHECKLIST.md) (34 met / 4 unmet, each unmet item stated with its measured value). Delivery commit SHA recorded in [docs/implementation/RESOURCES.md](docs/implementation/RESOURCES.md). Stage plan: [docs/implementation/01-STAGES.md](docs/implementation/01-STAGES.md); system contract: [docs/implementation/02-SYSTEM-CONTRACT.md](docs/implementation/02-SYSTEM-CONTRACT.md); dataset hashes + rebuild details: [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
+**Status:** **Delivered 2026-10-07** — all nine stages complete. Final Success Criteria audit: [docs/DELIVERABLE_CHECKLIST.md](docs/DELIVERABLE_CHECKLIST.md) (35 met / 4 unmet — human CLI acceptance received; each unmet item stated with its measured value). Delivery commit SHA recorded in [docs/implementation/RESOURCES.md](docs/implementation/RESOURCES.md). Stage plan: [docs/implementation/01-STAGES.md](docs/implementation/01-STAGES.md); system contract: [docs/implementation/02-SYSTEM-CONTRACT.md](docs/implementation/02-SYSTEM-CONTRACT.md); dataset hashes + rebuild details: [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
 ## Architecture
 
@@ -150,7 +150,7 @@ Fallback rate by query type: in-domain factual 0/5, in-domain how-to 0/4, out-of
 
 ## Submission artifacts
 
-- [docs/DELIVERABLE_CHECKLIST.md](docs/DELIVERABLE_CHECKLIST.md) — Final Success Criteria audited against real artifacts (34 met / 4 unmet with measured values)
+- [docs/DELIVERABLE_CHECKLIST.md](docs/DELIVERABLE_CHECKLIST.md) — Final Success Criteria audited against real artifacts (35 met / 4 unmet with measured values; human CLI acceptance received)
 - [docs/evaluation_report.md](docs/evaluation_report.md) — validation tables (assignment Steps 1–5)
 - [docs/iteration_log.md](docs/iteration_log.md) — 4 entries; final config traceable to the last kept entry
 - [docs/visualizations/](docs/visualizations/) — the 6 required charts
