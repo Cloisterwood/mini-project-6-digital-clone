@@ -10,6 +10,7 @@ Run Stage 4 (EvaluatorAgent and FallbackAgent — July Task 10) from `01-STAGES.
 ## Stage 3 record (2026-10-07)
 
 - **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
+- **Milestone commit:** `36e4509fae759d6f04a71a345d6ceb64011bb631` — pushed to `origin/main`, remote SHA verified equal to local HEAD. Code commits within Stage 3: `9524bca` (chunker), `1571dab` (embedders + index), `61051f8` (RAGAgent).
 - **Code (tests first, red verified via `ModuleNotFoundError` before each implementation):** `rag/chunker.py` (4 tests), `rag/embedder.py` + `rag/index.py` (4 tests), `rag/corpus_loader.py` + `agents/rag_agent.py` (5 tests), fixture `tests/fixtures/sample_corpus.json`. Full suite: **43/43 passed** (30 prior + 13 new).
 - **Script:** `scripts/build_knowledge_base.py` — July Task 12 Step 2 extended with the spec's full Step-2 validation (5 spot-check queries with relevance-in-top-5 and per-query latency) and per-phase timings; writes `data/rag/build_report.json`.
 - **Real build ran 3×** (story + evidence in `docs/iteration_log.md`): build 1 (July loader stop rule) selected **1 textbook** → 1,476 chunks, spot checks 1/5 relevant; build 2 (`min_docs=8` repair) → 11,767 chunks, 2/5 relevant; a full-dataset keyword scan located the missing topics deeper in the fixed stream order, so build 3 used **`min_docs=500`** → 500 docs, **210,225 chunks** (>900 ✓), **5/5 spot checks PASS** (top-1 sim 0.78–0.86, **13–62 ms** ≪ 1 s), persistence smoke reload in 8.5 s with in-domain queries hitting sim 0.82–0.85.

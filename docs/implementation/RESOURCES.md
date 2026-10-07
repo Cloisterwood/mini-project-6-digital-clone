@@ -38,6 +38,7 @@
 
 ## Stage 3 record (2026-10-07)
 
+- **Milestone commit:** `36e4509fae759d6f04a71a345d6ceb64011bb631` (remote SHA verified equal to local HEAD). Code commits within Stage 3: `9524bca` (chunker), `1571dab` (embedders + index), `61051f8` (RAGAgent).
 - **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
 - **Tests:** 43/43 passed (13 new: chunker 4, index/embedder 4, RAG agent 5; each red-first verified via `ModuleNotFoundError`). Fixture `tests/fixtures/sample_corpus.json` created (3 docs, 6 paragraphs each).
 - **Knowledge base build (3 iterations — full story in `docs/iteration_log.md`):** final corpus = first 500 `computer_science` books in `open-phi/textbooks` stream order (diversity floor `min_docs=500` added to `corpus_loader.py` after builds 1–2 failed the spec's top-5 relevance spot check at 1/5 and 2/5). **210,225 chunks** (target >900), indexed in **528.6 s** (spec target <5 min — unmet, documented tension: relevance vs indexing time), **5/5 spot checks PASS** (top-1 sim 0.78–0.86, 13–62 ms ≪ 1 s). Persistence smoke: `RAGAgent.load()` restores 210,225 chunks in 8.5 s; "What is an operating system kernel?" → sim 0.83.
