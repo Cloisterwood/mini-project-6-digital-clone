@@ -1,11 +1,19 @@
 # Handoff — current state
 
 **Planning date:** October 6, 2026 (plan created by ZCode from the user's pasted assignment).
-**Status:** **Stage 3 complete** (2026-10-07, ZCode, model GLM-5.3-Flash; Stages 0–2 completed 2026-10-07 same runner). Next action: **Stage 4**.
+**Status:** **Stage 4 complete** (2026-10-07, ZCode, model GLM-5.3-Flash; Stages 0–3 completed 2026-10-07 same runner). Next action: **Stage 5**.
 
 ## Next action
 
-Run Stage 4 (EvaluatorAgent and FallbackAgent — July Task 10) from `01-STAGES.md`. Tests use fixtures only (no S2/S3 artifacts needed), so no rebuilds are required first. Includes threshold-boundary tests at 0.70/0.75/0.80 to prepare S7 tuning. The user's outstanding Stage 0 follow-through (still open): create the ten Linear issues from the paste list given at the S0 stop, paste the IDs/URLs into RESOURCES.md, and mark MP6-S0…S3 Done using the evidence in `docs/implementation/LINEAR_SYNC.md`.
+Run Stage 5 (PlannerAgent, CLI, integration and e2e tests — July Task 11) from `01-STAGES.md`. Dependencies S2–S4 are all complete; the stage runs on fixtures (the CLI smoke may optionally load real artifacts, but acceptance is fixture-based). Scope: `PlannerAgent.process(query)` orchestration with latency measurement + JSONL decision log + graceful `system_error` recovery, `build_planner(config)` factory, CLI (`--query` one-shot / interactive REPL with score rendering), July `test_planner.py` + `test_e2e.py`, then full suite (≥23 unit tests required overall — actual will be ~68) and `pytest --cov` coverage of `src/digital_clone` core recorded (target >90%). The user's outstanding Stage 0 follow-through (still open): create the ten Linear issues from the paste list given at the S0 stop, paste the IDs/URLs into RESOURCES.md, and mark MP6-S0…S4 Done using the evidence in `docs/implementation/LINEAR_SYNC.md`.
+
+## Stage 4 record (2026-10-07)
+
+- **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
+- **Code commits:** `3a7d089` (EvaluatorAgent + tests), `b1590b1` (FallbackAgent + tests). Tests written first each time; red verified via `ModuleNotFoundError` before each implementation.
+- **Code:** `agents/evaluator_agent.py` — groundedness `0.5·mean_similarity + 0.5·token_overlap` (clipped), confidence per spec pseudocode `0.5·relevance + 0.3·completeness − min(0.15·hedge_count, 0.5)` (clipped) returning `(score, hedge_count)`, final score from `CloneConfig` weights, decision `deliver` iff `final ≥ fallback_threshold`, style injected as a callable. `agents/fallback_agent.py` — `should_fallback` priority exactly `system_error → user_request → low_confidence → high_uncertainty → None`, `build_response` with context summary, calendar link from `config.calendar_link_template.format(employee_name=…)` (S1 deviation honored — nothing hardcoded at call sites), 6 slots = next 3 weekdays × (10:00, 14:00).
+- **Tests:** 25 new (12 evaluator + 13 fallback), all July Task 10 tests verbatim plus Stage-4 additions: threshold-boundary tests at **0.70/0.75/0.80** on both agents (decision boundary tracks `CloneConfig.fallback_threshold`, exact-boundary semantics `deliver iff ≥`), trigger-priority ordering, config-template calendar link, no-evaluation fallback summary, weekday/time slot generation (Wed 2026-10-07 → Thu 8, Fri 9, Mon 12), confidence clipped to 0 under hedge flood. Full suite: **68/68 passed** (43 prior + 25 new).
+- **No deviations** from July Task 10 beyond the already-documented `calendar_link_template` rule (stage requirement, not a deviation). No iteration log entry needed — no tunables changed; defaults untouched.
 
 ## Stage 3 record (2026-10-07)
 

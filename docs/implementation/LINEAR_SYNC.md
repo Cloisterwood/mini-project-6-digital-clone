@@ -21,3 +21,8 @@ No Linear MCP in ZCode; the user creates the issues manually (decision 2026-10-0
 
 - Status: Done (2026-10-07)
 - Evidence: `pytest` 30/30 passed (22 new tests, red-first verified); real build loaded 7,414 usable sent emails for `mann-k` (≥200 required; top-20 sent-volume report printed, `mann-k` #1 with 8,926 raw); 149 incremental batches; greeting/sign-off patterns learned; `data/models/style_profile_kay_mann.json` saved; `docs/visualizations/style_feature_radar.png` passed visual acceptance. Deviations logged in `docs/iteration_log.md`. Commit SHAs in HANDOFF.md/RESOURCES.md.
+
+## MP6-S4 — Stage 4 (EvaluatorAgent and FallbackAgent)
+
+- Status: Done (2026-10-07)
+- Evidence: `pytest` 68/68 passed (25 new tests, red-first verified via `ModuleNotFoundError`); all July Task 10 tests verbatim (weighted-sum final score, hedging sensitivity, token-overlap groundedness, empty-retrieval → groundedness 0 + fallback, trigger priority, slot generation) plus Stage-4 threshold-boundary tests at 0.70/0.75/0.80 on both agents (boundary tracks `CloneConfig.fallback_threshold` — S7 tuning ready); booking link built from `config.calendar_link_template` (no hardcoded values at call sites); no tunables changed, no iteration log entry required. Commit SHAs `3a7d089`, `b1590b1` (see HANDOFF.md).
