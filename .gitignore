@@ -22,3 +22,6 @@ data/rag/chunks_metadata.json
 
 # Editable-install build artifact
 *.egg-info/
+
+# Coverage runner artifact
+.coverage
