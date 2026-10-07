@@ -59,3 +59,40 @@ CS textbooks.
 
 No `CloneConfig` tunable was changed in Stage 3; the loader change is code, not
 a tunable (chunk_size/overlap/top_k/min_chunks all flow from `CloneConfig`).
+
+## Entry 1 — Baseline (Stage 6, 2026-10-07)
+
+```markdown
+## Iteration Log Entry
+
+| Field | Value |
+| --- | --- |
+| Change | Baseline config: threshold=0.75, weights=0.4/0.4/0.2, alpha=0.3, chunks=500/50, top_k=5, confidence=0.5*relevance+0.3*completeness-penalty (spec formula) |
+| Reason | Starting point per project spec |
+| Metric Before | — |
+| Metric After | 20/20 queries, 0 crashes (reliability 100%). Fallback rate 50% (10/20: 6 low_confidence + 4 user_request). Mean style 0.999, groundedness 0.648, confidence 0.572, final (all scored) 0.773, final (in-domain) 0.845. Latency mean 41 ms, p95 56 ms (after model load). Evaluation speed 0.14 ms/call; retrieval mean 13.1 ms. Full block: `data/evaluations/eval_results.json`; per-query table: `docs/evaluation_report.md` |
+| Delta | — |
+| Keep? | Baseline reference |
+```
+
+Gaps vs targets, recorded honestly (S7 tuning input — no tuning done in S6):
+
+- **Fallback rate 50% > 40% target.** By type: in-domain 0/9,
+  out-of-domain 3/4, ambiguous 3/3, booking 4/4. Booking (4/20 = 20%) is
+  fixed by the query mix (contract tension #2); the excess is low_confidence
+  fallbacks on ambiguous/OOD queries. Assignment's own knob: threshold 0.70.
+  Trigger priority untouched per 02-SYSTEM-CONTRACT.
+- **Confidence mean 0.572 < 0.80 target.** Expected from the spec formula's
+  0.8 cap (contract tension #1); the observed value is lower because
+  completeness < 1 for short template answers. Logged S7 experiment: reweight
+  `0.6·relevance + 0.4·completeness − penalty`.
+- **Out-of-domain wrong delivery:** "Explain dark matter physics" delivered
+  at final 0.81 (groundedness 0.70 — MiniLM finds superficially similar CS
+  chunks, so token overlap stays high). In direct tension with the
+  fallback-rate knob: lowering the threshold to 0.70 would deliver more OOD
+  queries, raising it pushes fallback rate further above 40%. S7 must weigh
+  both against the same 20-query set (the only benchmark).
+- **Indexing time 528.6 s ≥ 5 min** — carried from S3 (iteration log Stage 3
+  notes); not re-measured here, unchanged by query-time tuning.
+
+No `CloneConfig` tunable was changed in Stage 6.
