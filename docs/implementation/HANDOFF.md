@@ -1,11 +1,21 @@
 # Handoff — current state
 
 **Planning date:** October 6, 2026 (plan created by ZCode from the user's pasted assignment).
-**Status:** **Stage 2 complete** (2026-10-07, ZCode, model GLM-5.3-Flash; Stage 0–1 completed 2026-10-07 same runner). Next action: **Stage 3**.
+**Status:** **Stage 3 complete** (2026-10-07, ZCode, model GLM-5.3-Flash; Stages 0–2 completed 2026-10-07 same runner). Next action: **Stage 4**.
 
 ## Next action
 
-Run Stage 3 (knowledge base and RAGAgent — July Tasks 7–9 + RAG half of Task 12) from `01-STAGES.md`. It streams `open-phi/textbooks`, indexes >900 chunks into FAISS (<5 min target), and needs the `sample_corpus.json` fixture from Task 7. No corpus download needed (textbooks stream; style corpus already cached by kagglehub). The user's outstanding Stage 0 follow-through (still open): create the ten Linear issues from the paste list given at the S0 stop, paste the IDs/URLs into RESOURCES.md, and mark MP6-S0/S1/S2 Done using the evidence in `docs/implementation/LINEAR_SYNC.md`.
+Run Stage 4 (EvaluatorAgent and FallbackAgent — July Task 10) from `01-STAGES.md`. Tests use fixtures only (no S2/S3 artifacts needed), so no rebuilds are required first. Includes threshold-boundary tests at 0.70/0.75/0.80 to prepare S7 tuning. The user's outstanding Stage 0 follow-through (still open): create the ten Linear issues from the paste list given at the S0 stop, paste the IDs/URLs into RESOURCES.md, and mark MP6-S0…S3 Done using the evidence in `docs/implementation/LINEAR_SYNC.md`.
+
+## Stage 3 record (2026-10-07)
+
+- **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
+- **Code (tests first, red verified via `ModuleNotFoundError` before each implementation):** `rag/chunker.py` (4 tests), `rag/embedder.py` + `rag/index.py` (4 tests), `rag/corpus_loader.py` + `agents/rag_agent.py` (5 tests), fixture `tests/fixtures/sample_corpus.json`. Full suite: **43/43 passed** (30 prior + 13 new).
+- **Script:** `scripts/build_knowledge_base.py` — July Task 12 Step 2 extended with the spec's full Step-2 validation (5 spot-check queries with relevance-in-top-5 and per-query latency) and per-phase timings; writes `data/rag/build_report.json`.
+- **Real build ran 3×** (story + evidence in `docs/iteration_log.md`): build 1 (July loader stop rule) selected **1 textbook** → 1,476 chunks, spot checks 1/5 relevant; build 2 (`min_docs=8` repair) → 11,767 chunks, 2/5 relevant; a full-dataset keyword scan located the missing topics deeper in the fixed stream order, so build 3 used **`min_docs=500`** → 500 docs, **210,225 chunks** (>900 ✓), **5/5 spot checks PASS** (top-1 sim 0.78–0.86, **13–62 ms** ≪ 1 s), persistence smoke reload in 8.5 s with in-domain queries hitting sim 0.82–0.85.
+- **Target miss (recorded, not hidden):** indexing **528.6 s vs <5 min target** — the cost of the corpus expansion the assignment itself prescribes for irrelevant retrieval; documented as a new spec tension (relevance vs indexing time). Query-time latency (the runtime target) is 13–62 ms.
+- **Artifacts:** `data/rag/faiss_index/index.faiss` (308 MB) and `data/rag/chunks_metadata.json` (102 MB) **gitignored** (>50 MB rule; rebuild: `.venv/bin/python scripts/build_knowledge_base.py`); `data/rag/build_report.json` committed for the S6 validation table.
+- **Deviations:** `corpus_loader.py` stop-condition diversity floor (logged); Big-O spot-check keyword `big-o`→`complexity` (logged); HF streaming hit transient read timeouts twice — `datasets` built-in retries recovered, no data affected.
 
 ## Stage 2 record (2026-10-07)
 

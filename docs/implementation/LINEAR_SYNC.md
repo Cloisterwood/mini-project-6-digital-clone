@@ -12,6 +12,11 @@ No Linear MCP in ZCode; the user creates the issues manually (decision 2026-10-0
 - Status: Done (2026-10-07)
 - Evidence: Python 3.14.5 `.venv`, full required stack resolved (crewai does not — requires <3.14, noted for S8); `pytest` 8/8 passed (tests written first, red verified); `.venv/bin/python -m digital_clone doctor` → OK; commit recorded in HANDOFF.md.
 
+## MP6-S3 — Stage 3 (knowledge base and RAGAgent)
+
+- Status: Done (2026-10-07)
+- Evidence: `pytest` 43/43 passed (13 new, red-first verified); real build: 500 docs → 210,225 chunks (>900 ✓), 5/5 top-5 relevance spot checks PASS (13–62 ms ≪ 1 s ✓); indexing 528.6 s vs <5 min target = **unmet, documented as a spec tension** (corpus expansion was the assignment's own repair for irrelevant retrieval; smaller builds measured 1/5 and 2/5 relevant). Artifacts `data/rag/faiss_index/index.faiss` (308 MB) + `chunks_metadata.json` (102 MB) gitignored per the >50 MB rule, rebuild command documented. Loader deviation (`min_docs=500`) in `docs/iteration_log.md`. Commit SHA in HANDOFF.md.
+
 ## MP6-S2 — Stage 2 (Enron data and ChatStyleAgent)
 
 - Status: Done (2026-10-07)

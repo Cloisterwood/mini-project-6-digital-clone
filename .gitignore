@@ -14,5 +14,11 @@ data/raw/
 data/emails/
 *.joblib
 
+# RAG artifacts — too large to commit at min_docs=500 (index.faiss ≈ 308 MB,
+# chunks_metadata.json ≈ 102 MB). Rebuild with:
+#   .venv/bin/python scripts/build_knowledge_base.py
+data/rag/faiss_index/
+data/rag/chunks_metadata.json
+
 # Editable-install build artifact
 *.egg-info/
