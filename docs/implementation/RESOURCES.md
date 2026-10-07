@@ -29,6 +29,7 @@
 
 ## Stage 2 record (2026-10-07)
 
+- **Milestone commit:** `60e3325deef578a9b9b1ddf88d1c4a4be9766e61` (remote SHA verified equal to local HEAD).
 - **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
 - **Tests:** 30/30 passed (22 new: features 7, email loader 5, incremental 5, style agent 5; each module red-first verified).
 - **Dataset cached:** Kaggle `wcukierski/enron-email-dataset` version 2 via kagglehub at `~/.cache/kagglehub/datasets/wcukierski/enron-email-dataset/versions/2/emails.csv` (358 MB download took ~13 s; subsequent runs are cached).

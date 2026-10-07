@@ -10,7 +10,7 @@ Run Stage 3 (knowledge base and RAGAgent — July Tasks 7–9 + RAG half of Task
 ## Stage 2 record (2026-10-07)
 
 - **Runner/model:** ZCode session, model GLM-5.3-Flash (Sol/Terra/Luna table not applicable).
-- **Milestone commit:** see git log `feat(S2)`/docs commits after `037abec`; remote SHA verified equal to local HEAD (verify command output preserved in the session transcript and RESOURCES.md Stage 2 record).
+- **Milestone commit:** `60e3325deef578a9b9b1ddf88d1c4a4be9766e61` — pushed to `origin/main`, remote SHA verified equal to local HEAD. Code commits within Stage 2: `33a0ebe` (features), `f4368d8` (loader), `6c6d080` (learner), `037abec` (style agent).
 - **Code (tests first, red verified via `ModuleNotFoundError` before each implementation):** `style/features.py` (7 tests), `style/email_loader.py` + 12-email fixture + `conftest.py` (5 tests), `style/incremental.py` (5 tests), `agents/style_agent.py` (5 tests). Full suite: **30/30 passed** (8 prior + 22 new).
 - **Scripts:** `scripts/build_style_profile.py` (July Task 12 Step 1 + Stage 2 additions: top-20 sent-volume report before learning, documented dasovich-j fallback if <200, per-batch delta report) and `scripts/plot_style_radar.py` (spec chart 1).
 - **Real build evidence:** Kaggle corpus downloaded via kagglehub (358 MB, cached at `~/.cache/kagglehub/.../versions/2/emails.csv`). Top-20 report printed; `mann-k` is #1 with 8,926 raw sent-folder messages. **7,414 usable sent emails** loaded for `kay.mann@enron.com` (≥200 required — no fallback switch). **149 batches** processed (history length >1 ✓); learned greeting "hi" (12.5%) and sign-off "thanks" (25.3%). Profile saved to `data/models/style_profile_kay_mann.json` (+ joblib, gitignored).
