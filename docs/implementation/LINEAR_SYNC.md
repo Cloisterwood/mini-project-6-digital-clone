@@ -2,6 +2,11 @@
 
 No Linear MCP in ZCode; the user creates the issues manually (decision 2026-10-07). Entries below are **pending synchronization** — paste them into the matching issues when they exist, and delete them from this file once recorded.
 
+## MP6-S8 — Stage 8 (CrewAI mapping and reproducibility)
+
+- Status: Done (2026-10-07)
+- Evidence: `pytest` **81/81 passed** (3 new crew tests, red-first verified via `ModuleNotFoundError`); `src/digital_clone/crew.py` — `describe_crew()` offline (5 role/goal/backstory specs, July Task 15), `build_crew()` gated on `OPENAI_API_KEY` with the heavy import inside the function. crewai `<3.14` gotcha resolved with real evidence, not a stub: on a Python 3.13.5 side-venv, crewai 1.15.24 installed and `build_crew()` built a genuine 5-agent `crewai.Crew`. Full README (July Task 16 structure): architecture, setup, 5-step pipeline, results with real kept-config numbers (every number traced to `eval_results.json`/`evaluation_report.md`/`build_report.json`), design decisions incl. confidence-reweight provenance = iteration log Entry 2, deliver-vs-fallback rationale per query type, 5 known tensions. `docs/REPRODUCIBILITY.md` (new): Kaggle `emails.csv` SHA-256 `a605f0a2…8bd274`, HF `open-phi/textbooks` revision `292aaae…dacaf2` (lastModified 2023-10-08 — predates build), exact pip versions, rebuild commands, what-reproduces-exactly section. **No new tuning** (no `CloneConfig` tunable touched; iteration log's 4 entries stand). Commit SHA in HANDOFF.md. Pending sync: S0–S7 above.
+
 ## MP6-S0 — Stage 0 (access, destinations, decisions)
 
 - Status: Done (2026-10-07)

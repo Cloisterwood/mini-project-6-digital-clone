@@ -45,6 +45,12 @@
 - **Artifacts:** `data/rag/faiss_index/index.faiss` (308 MB) and `data/rag/chunks_metadata.json` (102 MB) are **gitignored** (>.50 MB rule); rebuild: `.venv/bin/python scripts/build_knowledge_base.py`. `data/rag/build_report.json` (1.4 KB, committed) holds the measured numbers for the S6 Step-2 validation table.
 - **HF dataset note:** unauthenticated streaming hits transient read timeouts; the `datasets` library's built-in retries recovered both times. Dataset schema verified (`topic`, `markdown`, `field`); `computer_science` is the dominant field (1,511 of 1,795 books).
 
+## Stage 8 record (2026-10-07)
+
+- **Runner/model:** ZCode session, model GLM-5.3-Flash (ZCode clause of 03-OPERATING-RULES).
+- **crewai gotcha resolved with real evidence (S1's open decision):** crewai does not install on the project's Python 3.14.5 `.venv` (needs `<3.14`), so the real `build_crew()` path was verified on a **Python 3.13.5 side-venv** (`/tmp`, deleted after the check): `pip install crewai` → **crewai 1.15.24**; with `OPENAI_API_KEY` set, `digital_clone.crew.build_crew()` constructed a genuine 5-agent `crewai.Crew`. On the project venv, `describe_crew()` and the gated `build_crew()` (raises `RuntimeError` without the key) work offline — the `crewai` import lives inside `build_crew`, so the module imports cleanly without it. Not a stub.
+- **Dataset identities pinned in `docs/REPRODUCIBILITY.md`:** Kaggle `emails.csv` SHA-256 `a605f0a2ca4a4feaa557eb0f2be825914906dca816066d7e58983e7e2e8bd274` (computed 2026-10-07 on the cached v2 download); HF `open-phi/textbooks` revision `292aaae99cbecacad50f692d7327887f05dacaf2` (dataset lastModified 2023-10-08 — unchanged since before the build, so the pinned revision is the used revision). Exact `pip freeze` versions recorded in REPRODUCIBILITY.md.
+
 ## Notes
 
 - The user's pasted assignment lost its HuggingFace/Kaggle hyperlink URLs in copy-paste; the dataset identities above come from the July plan's locked decisions and the assignment's own descriptions (mailbox-style Enron corpus; `open-phi/textbooks`). If Stage 2 or 3 finds a mismatch with the actual data, stop and re-confirm with the user before substituting a different source.
