@@ -9,6 +9,8 @@ Run Stage 2 (Enron data and ChatStyleAgent — July Tasks 3–6 + style half of 
 
 ## Stage 1 record (2026-10-07)
 
+- **Milestone commit:** `e7a06ae3350f52d1e9b21efbd1a5709bbe0abf34` — pushed to `origin/main`, remote SHA verified equal to local HEAD.
+
 - Python **3.14.5** `.venv`; full required stack resolved on it (faiss-cpu 1.15.1, sentence-transformers 6.1.0, scikit-learn 1.9.1, pydantic 2.13.5). Full details in RESOURCES.md.
 - `pytest`: **8/8 passed** (2 config + 6 models), written red-first per the July plan.
 - `.venv/bin/python -m digital_clone doctor`: **OK** (versions, import smoke numpy/sklearn/faiss, disk 151 GB free).
