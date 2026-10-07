@@ -38,7 +38,10 @@ class EvaluatorAgent:
         lowered = response.lower()
         hedge_count = sum(lowered.count(p) for p in HEDGING_PHRASES)
         penalty = float(np.clip(hedge_count * 0.15, 0.0, 0.5))
-        score = float(np.clip(0.5 * relevance + 0.3 * completeness - penalty, 0.0, 1.0))
+        score = float(np.clip(
+            self.config.confidence_relevance_weight * relevance
+            + self.config.confidence_completeness_weight * completeness - penalty,
+            0.0, 1.0))
         return score, hedge_count
 
     def evaluate(self, query: str, response: str,

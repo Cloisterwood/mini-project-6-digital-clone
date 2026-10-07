@@ -103,4 +103,4 @@ def test_confidence_clipped_to_unit_range():
     filler = ("possibly i think maybe perhaps " * 30).strip()
     conf, hedges = agent.confidence(filler, make_retrieved(sim=0.0))
     assert hedges > 3
-    assert conf == 0.0  # 0.3*completeness - 0.5 penalty < 0 -> clipped
+    assert conf == 0.0  # completeness weight - 0.5 penalty < 0 -> clipped

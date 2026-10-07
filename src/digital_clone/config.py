@@ -21,6 +21,11 @@ class CloneConfig(BaseModel):
     fallback_threshold: float = 0.75
     hedge_fallback_count: int = 3
     expected_response_length: int = 400   # chars, for completeness score
+    # Confidence formula weights (02-SYSTEM-CONTRACT tension #1). Kept S7
+    # reweight 0.6/0.4 (iteration log Entry 2); the spec formula 0.5/0.3 caps
+    # confidence at 0.8 and measured 0.572 at baseline.
+    confidence_relevance_weight: float = 0.6
+    confidence_completeness_weight: float = 0.4
 
     # RAG
     chunk_size: int = 500
